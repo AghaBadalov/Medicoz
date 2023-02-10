@@ -1,0 +1,41 @@
+﻿@model List<Settings>
+@{
+    int counter = 0;
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Key</th>
+            <th scope="col">Value</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Settings settings in Model)
+        {
+            counter++;
+            <tr>
+                <th scope="row">@counter</th>
+                <td>@settings.Id</td>
+                <td>@settings.Key</td>
+                
+                    @if(settings.IsImage!=true){
+                        <td>@settings.Value</td>
+                    }
+                    else{
+                <td><div><img style="max-width:100px" src="~/uploads/settings/@settings.ImageUrl" alt=""></div></td>
+                    }
+                
+                
+                <td>
+                    
+                    <a asp-action=@((settings.IsImage!=true)? "update" : "imageupdate") asp-controller="setting" asp-route-id="@settings.Id" class="btn btn-outline-warning m-2">Update</a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
