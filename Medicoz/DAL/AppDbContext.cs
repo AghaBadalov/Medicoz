@@ -11,5 +11,7 @@ namespace Medicoz.DAL
         }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Settings> Settings { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Feature> Features { get; set; }
     }
 }

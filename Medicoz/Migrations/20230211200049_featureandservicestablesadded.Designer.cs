@@ -3,6 +3,7 @@ using Medicoz.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Medicoz.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230211200049_featureandservicestablesadded")]
+    partial class featureandservicestablesadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,9 +40,6 @@ namespace Medicoz.Migrations
                         .IsRequired()
                         .HasMaxLength(101)
                         .HasColumnType("nvarchar(101)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Tittle")
                         .IsRequired()
@@ -69,9 +68,6 @@ namespace Medicoz.Migrations
                         .IsRequired()
                         .HasMaxLength(101)
                         .HasColumnType("nvarchar(101)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Tittle")
                         .IsRequired()
