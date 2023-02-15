@@ -13,5 +13,8 @@ namespace Medicoz.DAL
         public DbSet<Settings> Settings { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Feature> Features { get; set; }
+        public DbSet<Ad> Ads { get; set; }
+        public DbSet<Plan> Plans { get; set; }
+        public DbSet<PlanCategory> PlanCategories { get; set; }
     }
 }

@@ -6,6 +6,9 @@
 @{
     int counter = 0;
 }
+@section Js{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+}
 <div class="col-sm-12 col-xl-12">
     <div class="bg-light rounded h-100 p-8">
         <a asp-action="create" asp-controller="service" class="btn btn-outline-primary m-2">Create</a>
@@ -33,7 +36,7 @@
 
 
                         <td>
-                            <a asp-action="softdelete" asp-controller="service" asp-route-id="@service.Id" class="btn btn-outline-danger m-2">Delete</a>
+                            <a asp-action="softdelete" asp-controller="service" asp-route-id="@service.Id" class="btn btn-outline-danger m-2 delete-button">Delete</a>
                             <a asp-action="update" asp-controller="service" asp-route-id="@service.Id" class="btn btn-outline-warning m-2">Update</a>
                         </td>
 
@@ -44,3 +47,6 @@
         </table>
     </div>
 </div>
+@section Script{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.1/sweetalert2.min.js" integrity="sha512-vCI1Ba/Ob39YYPiWruLs4uHSA3QzxgHBcJNfFMRMJr832nT/2FBrwmMGQMwlD6Z/rAIIwZFX8vJJWDj7odXMaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}
