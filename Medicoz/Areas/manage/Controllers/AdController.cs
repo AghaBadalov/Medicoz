@@ -17,14 +17,19 @@ namespace Medicoz.Areas.manage.Controllers
             _context = context;
             _env = env;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
-            List<Ad> ads = _context.Ads.Where(x=>x.Isdeleted==false).ToList();
+            //List<Ad> ads = _context.Ads.Where(x=>x.Isdeleted==false).ToList();
+            var query=_context.Ads.Where(x=>x.Isdeleted==false).AsQueryable();
+            PaginatedList<Ad> ads = PaginatedList<Ad>.Create(query, 6, page);
             return View(ads);
         }
-        public IActionResult DeletedAd()
+        public IActionResult DeletedAd(int page=1)
         {
-            List<Ad> ads = _context.Ads.Where(x => x.Isdeleted == true).ToList();
+            //List<Ad> ads = _context.Ads.Where(x => x.Isdeleted == true).ToList();
+            var query = _context.Ads.Where(x => x.Isdeleted == true).AsQueryable();
+            PaginatedList<Ad> ads=PaginatedList<Ad>.Create(query, 6, page);
+
             return View(ads);
         }
         public IActionResult Create()

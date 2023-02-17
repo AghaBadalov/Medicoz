@@ -2,6 +2,7 @@
 using Medicoz.Helpers;
 using Medicoz.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Medicoz.Areas.manage.Controllers
 {
@@ -16,14 +17,16 @@ namespace Medicoz.Areas.manage.Controllers
             _context = context;
             _env = env;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
-            List<Slider> sliders = _context.Sliders.Where(x=>x.IsDeleted==false).ToList();
+            var query = _context.Sliders.Where(x => x.IsDeleted == false).AsQueryable();
+            PaginatedList<Slider> sliders = PaginatedList<Slider>.Create(query, 6, page);
             return View(sliders);
         }
-        public IActionResult DeletedSliders()
+        public IActionResult DeletedSliders(int page=1)
         {
-            List<Slider> sliders = _context.Sliders.Where(x=>x.IsDeleted==true).ToList();
+            var query = _context.Sliders.Where(x => x.IsDeleted == false).AsQueryable();
+            PaginatedList<Slider> sliders = PaginatedList<Slider>.Create(query, 6, page);
             return View(sliders);
         }
         public IActionResult Create()

@@ -6,7 +6,7 @@ namespace Medicoz.Models
     public class Plan
     {
         public int Id { get; set; }
-        public string CategoryId { get; set; }
+        public int PlanCategoryId { get; set; }
         public double Price { get; set; }
         public bool IsDeleted { get; set; }
         public Period Planperiod { get; set; }
@@ -23,7 +23,7 @@ namespace Medicoz.Models
         public string Feature4 { get; set; }
         [StringLength(maximumLength: 12)]
 
-        public string Button { get; set; }
+        
         public PlanCategory? PlanCategory { get; set; }
     }
 }

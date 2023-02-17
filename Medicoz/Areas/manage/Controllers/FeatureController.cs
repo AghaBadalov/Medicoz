@@ -1,6 +1,8 @@
 ﻿using Medicoz.DAL;
+using Medicoz.Helpers;
 using Medicoz.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Medicoz.Areas.manage.Controllers
 {
@@ -15,14 +17,17 @@ namespace Medicoz.Areas.manage.Controllers
             _context = context;
             _env = env;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
-            List<Feature> features=_context.Features.Where(x=>x.IsDeleted==false).ToList();
+            //List<Feature> features=_context.Features.Where(x=>x.IsDeleted==false).ToList();
+            var query = _context.Features.Where(x => x.IsDeleted == false).AsQueryable();
+            PaginatedList<Feature> features = PaginatedList<Feature>.Create(query, 6,page);
             return View(features);
         }
-        public IActionResult DeletedFeature()
+        public IActionResult DeletedFeature(int page=1)
         {
-            List<Feature> features = _context.Features.Where(x => x.IsDeleted == true).ToList();
+            var query = _context.Features.Where(x => x.IsDeleted == true).AsQueryable();
+            PaginatedList<Feature> features = PaginatedList<Feature>.Create(query, 6, page);
             return View(features);
         }
         public IActionResult Create()

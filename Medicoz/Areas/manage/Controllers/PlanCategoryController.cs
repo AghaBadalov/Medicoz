@@ -1,6 +1,8 @@
 ﻿using Medicoz.DAL;
+using Medicoz.Helpers;
 using Medicoz.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace Medicoz.Areas.manage.Controllers
@@ -14,14 +16,17 @@ namespace Medicoz.Areas.manage.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
-            List<PlanCategory> categories = _context.PlanCategories.Where(x => x.IsDeleted == false).ToList();
+            //List<PlanCategory> categories = _context.PlanCategories.Where(x => x.IsDeleted == false).ToList();
+            var query = _context.PlanCategories.Where(x => x.IsDeleted == false).AsQueryable();
+            PaginatedList<PlanCategory> categories = PaginatedList<PlanCategory>.Create(query, 6, page);
             return View(categories);
         }
-        public IActionResult Deletedcategories()
+        public IActionResult Deletedcategories(int page=1)
         {
-            List<PlanCategory> categories = _context.PlanCategories.Where(x=>x.IsDeleted==true).ToList();
+            var query = _context.PlanCategories.Where(x => x.IsDeleted == true).AsQueryable();
+            PaginatedList<PlanCategory> categories = PaginatedList<PlanCategory>.Create(query, 6, page);
             return View(categories);
 
         }

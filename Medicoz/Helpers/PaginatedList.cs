@@ -4,7 +4,7 @@ namespace Medicoz.Helpers
 {
     public class PaginatedList<T> :List<T>
     {
-        public PaginatedList(List<T> values,int count,int page,int pagesize)
+        public PaginatedList(List<T> values,int count,int pagesize,int page)
         {
             this.AddRange(values);
             ActivePage = page;
@@ -15,7 +15,7 @@ namespace Medicoz.Helpers
         public int TotalPageCount { get; set; }
         public int ActivePage { get; set; }
 
-        public static PaginatedList<T> Create(IQueryable<T> query,int page,int pagesize)
+        public static PaginatedList<T> Create(IQueryable<T> query,int pagesize, int page)
         {
             return new PaginatedList<T>(query.Skip((page - 1) * pagesize).Take(pagesize).ToList(),query.Count(),pagesize,page);
         }

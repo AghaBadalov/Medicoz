@@ -1,6 +1,8 @@
 ﻿using Medicoz.DAL;
+using Medicoz.Helpers;
 using Medicoz.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace Medicoz.Areas.manage.Controllers
@@ -14,14 +16,19 @@ namespace Medicoz.Areas.manage.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
-            List<Plan> plans = _context.Plans.Include(x=>x.PlanCategory).Where(x=>x.IsDeleted==false).ToList();
+            //List<Plan> plans = _context.Plans.Include(x=>x.PlanCategory).Where(x=>x.IsDeleted==false).ToList();
+            var query= _context.Plans.Include(x => x.PlanCategory).Where(x => x.IsDeleted == false).AsQueryable();
+            PaginatedList<Plan> plans = PaginatedList<Plan>.Create(query, 6, page);
+
             return View(plans);
         }
-        public IActionResult DeletedPlans()
+        public IActionResult DeletedPlans(int page=1)
         {
-            List<Plan> plans = _context.Plans.Include(x=>x.PlanCategory).Where(x => x.IsDeleted == true).ToList();
+            var query = _context.Plans.Include(x => x.PlanCategory).Where(x => x.IsDeleted == true).AsQueryable();
+            PaginatedList<Plan> plans = PaginatedList<Plan>.Create(query, 6, page);
+
             return View(plans);
         }
         public IActionResult Create()
@@ -34,7 +41,12 @@ namespace Medicoz.Areas.manage.Controllers
         {
             ViewBag.Categories = _context.PlanCategories;
 
-            if (!ModelState.IsValid) return View(plan);
+            if (!ModelState.IsValid) return View();
+            if (plan.PlanCategory is null)
+            {
+                ModelState.AddModelError("PlanCategory", "Required");
+                return View();
+            }
             _context.Plans.Add(plan);
             _context.SaveChanges();
             return RedirectToAction("index");
@@ -61,7 +73,7 @@ namespace Medicoz.Areas.manage.Controllers
             exstplan.Feature2 = plan.Feature2;
             exstplan.Feature3 = plan.Feature3;
             exstplan.Feature4 = plan.Feature4;
-            exstplan.Button=plan.Button;
+            
             _context.SaveChanges();
             return RedirectToAction("index");
         }

@@ -27,7 +27,7 @@
 
             </div>
             <div class="mb-3">
-                <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories,"Id","Name"))"></select>
+                <select asp-for="PlanCategoryId" asp-items="@(new SelectList(ViewBag.Categories,"Id","Name"))"></select>
                 <span asp-validation-for="PlanCategory" class="text-danger"></span>
 
             </div>
@@ -55,12 +55,7 @@
                 <span asp-validation-for="Feature4" class="text-danger"></span>
 
             </div>
-            <div class="mb-3">
-                <label asp-for="Button" class="form-label">Button</label>
-                <input asp-for="Button" class="form-control">
-                <span asp-validation-for="Button" class="text-danger"></span>
-
-            </div>
+            
             <button type="submit" class="btn btn-primary" class="text-danger">Create</button>
         </form>
     </div>

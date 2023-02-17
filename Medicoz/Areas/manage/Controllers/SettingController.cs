@@ -18,9 +18,11 @@ namespace Medicoz.Areas.manage.Controllers
             _context = context;
             _env = env;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
-            List<Settings> settings = _context.Settings.ToList();
+            
+            var query = _context.Settings.AsQueryable();
+            PaginatedList<Settings> settings = PaginatedList<Settings>.Create(query, 6, page);
             return View(settings);
         }
         public IActionResult Update(int id)
@@ -56,11 +58,7 @@ namespace Medicoz.Areas.manage.Controllers
             Settings exstsettings = _context.Settings.FirstOrDefault(x => x.Id == setting.Id);
             if (exstsettings == null) return View("error");
             if (!ModelState.IsValid) return View(setting);
-            if(setting.ImageFile is null)
-            {
-                ModelState.AddModelError("ImageFile", "Can't be null");
-                return View(setting);
-            }
+            
             if (setting.ImageFile != null)
             {
                 if (setting.ImageFile.Length > 2097152)
