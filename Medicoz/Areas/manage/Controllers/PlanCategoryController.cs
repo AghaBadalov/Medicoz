@@ -23,13 +23,7 @@ namespace Medicoz.Areas.manage.Controllers
             PaginatedList<PlanCategory> categories = PaginatedList<PlanCategory>.Create(query, 6, page);
             return View(categories);
         }
-        public IActionResult Deletedcategories(int page=1)
-        {
-            var query = _context.PlanCategories.Where(x => x.IsDeleted == true).AsQueryable();
-            PaginatedList<PlanCategory> categories = PaginatedList<PlanCategory>.Create(query, 6, page);
-            return View(categories);
-
-        }
+       
 
         public IActionResult Create()
         {
@@ -68,21 +62,7 @@ namespace Medicoz.Areas.manage.Controllers
             _context.SaveChanges();
             return RedirectToAction("index");
         }
-        public IActionResult Repair(int id)
-        {
-            PlanCategory category = _context.PlanCategories.FirstOrDefault(x => x.Id == id);
-            if (category == null) return NotFound();
-            category.IsDeleted = false;
-            _context.SaveChanges();
-            return RedirectToAction("index");
-        }
-        public IActionResult SoftDelete(int id)
-        {
-            PlanCategory category = _context.PlanCategories.FirstOrDefault(x => x.Id == id);
-            if (category == null) return NotFound();
-            category.IsDeleted = true;
-            _context.SaveChanges();
-            return RedirectToAction("index");
-        }
+        
+        
     }
 }

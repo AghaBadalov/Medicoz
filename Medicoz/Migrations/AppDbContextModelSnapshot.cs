@@ -244,6 +244,32 @@ namespace Medicoz.Migrations
                     b.ToTable("Sliders");
                 });
 
+            modelBuilder.Entity("Medicoz.Models.TermandCondition", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Desc")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TermandConditions");
+                });
+
             modelBuilder.Entity("Medicoz.Models.Plan", b =>
                 {
                     b.HasOne("Medicoz.Models.PlanCategory", "PlanCategory")

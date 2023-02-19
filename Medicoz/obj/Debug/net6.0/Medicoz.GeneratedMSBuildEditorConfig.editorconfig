@@ -55,10 +55,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXFBsYW5DYXRlZ29yeVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lenovo/OneDrive/Desktop/Medicoz/Medicoz/Areas/manage/Views/PlanCategory/Deletedcategories.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXFBsYW5DYXRlZ29yeVxEZWxldGVkY2F0ZWdvcmllcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/lenovo/OneDrive/Desktop/Medicoz/Medicoz/Areas/manage/Views/PlanCategory/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXFBsYW5DYXRlZ29yeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -129,6 +125,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/lenovo/OneDrive/Desktop/Medicoz/Medicoz/Areas/manage/Views/Slider/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXFNsaWRlclxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lenovo/OneDrive/Desktop/Medicoz/Medicoz/Areas/manage/Views/Termsandconditions/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXFRlcm1zYW5kY29uZGl0aW9uc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lenovo/OneDrive/Desktop/Medicoz/Medicoz/Areas/manage/Views/Termsandconditions/DeletedTerms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXFRlcm1zYW5kY29uZGl0aW9uc1xEZWxldGVkVGVybXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lenovo/OneDrive/Desktop/Medicoz/Medicoz/Areas/manage/Views/Termsandconditions/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXFRlcm1zYW5kY29uZGl0aW9uc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lenovo/OneDrive/Desktop/Medicoz/Medicoz/Areas/manage/Views/Termsandconditions/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcbWFuYWdlXFZpZXdzXFRlcm1zYW5kY29uZGl0aW9uc1xVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/lenovo/OneDrive/Desktop/Medicoz/Medicoz/Areas/manage/Views/_ViewImports.cshtml]

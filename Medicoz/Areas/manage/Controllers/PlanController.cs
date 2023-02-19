@@ -42,9 +42,9 @@ namespace Medicoz.Areas.manage.Controllers
             ViewBag.Categories = _context.PlanCategories;
 
             if (!ModelState.IsValid) return View();
-            if (plan.PlanCategory is null)
+            if (_context.PlanCategories.FirstOrDefault() ==null)
             {
-                ModelState.AddModelError("PlanCategory", "Required");
+                ModelState.AddModelError("PlanCategoryId", "Required");
                 return View();
             }
             _context.Plans.Add(plan);
