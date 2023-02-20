@@ -17,6 +17,9 @@ namespace Medicoz.DAL
         public DbSet<Plan> Plans { get; set; }
         public DbSet<PlanCategory> PlanCategories { get; set; }
         public DbSet<TermandCondition> TermandConditions { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<About> Abouts { get; set; }
 
     }
 }

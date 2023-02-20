@@ -54,6 +54,7 @@ namespace Medicoz.Areas.manage.Controllers
         {
             Feature exstfeature = _context.Features.FirstOrDefault(x => x.Id == feature.Id);
             if(exstfeature is null) return View("error");
+            if (!ModelState.IsValid) return View();
             exstfeature.Tittle= feature.Tittle;
             exstfeature.Desc= feature.Desc;
             exstfeature.Icon=feature.Icon;

@@ -22,9 +22,10 @@ namespace Medicoz.Models
 
         public string Experience { get; set; }
         [StringLength(maximumLength: 20)]
-
+        [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
         [StringLength(maximumLength: 50)]
+        [DataType(DataType.EmailAddress)]
 
         public string Email { get; set; }
         [StringLength(maximumLength: 50)]
@@ -45,6 +46,11 @@ namespace Medicoz.Models
         [StringLength(maximumLength: 101)]
 
         public string? ImageUrl { get; set; }
+        [DataType(DataType.Time)]
+        public DateTime WorkStartTime { get; set; }
+        [DataType(DataType.Time)]
+
+        public DateTime WorkEndTime { get; set; }
         public bool IsDeleted { get; set; }
 
         public Department? Department { get; set; }

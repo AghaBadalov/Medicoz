@@ -52,6 +52,7 @@ namespace Medicoz.Areas.manage.Controllers
         {
             Service exstservice = _context.Services.FirstOrDefault(x => x.Id == service.Id);
             if (exstservice is null) return View("error");
+            if (!ModelState.IsValid) return View(service);
             exstservice.Tittle = service.Tittle;
             exstservice.Desc = service.Desc;
             exstservice.Icon = service.Icon;
