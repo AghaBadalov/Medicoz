@@ -41,7 +41,7 @@ namespace Medicoz.Areas.manage.Controllers
         public IActionResult Create(Doctor doctor)
         {
             ViewBag.Departments = _context.Departments;
-            if (!ModelState.IsValid) return View();
+            if (!ModelState.IsValid) return View(doctor);
             if (_context.Departments.FirstOrDefault() == null)
             {
                 ModelState.AddModelError("DepartmentId", "Add Department");
@@ -63,10 +63,29 @@ namespace Medicoz.Areas.manage.Controllers
                 return View();
             }
             doctor.ImageUrl = doctor.ImageFile.SaveFile("uploads/doctors", _env.WebRootPath);
-            TimeSpan time = doctor.WorkEndTime - doctor.WorkStartTime;
-            if(time.TotalHours>12 || time.TotalHours < 1)
+            
+            
+            if (doctor.WorkEndTime < doctor.WorkStartTime)
             {
-                ModelState.AddModelError("WorkEndTime", "work time must be greater than 1 and less than 12 ");
+                int time = (doctor.WorkStartTime.Hour - doctor.WorkEndTime.Hour);
+                if (time < 12)
+                {
+                    ModelState.AddModelError("WorkEndTime", "WorkTime must be 12 or lower");
+                    return View(doctor);
+                }
+            }
+            else if(doctor.WorkEndTime > doctor.WorkStartTime)
+            {
+                int time = (doctor.WorkEndTime.Hour - doctor.WorkStartTime.Hour);
+                if (time > 12 || time<1)
+                {
+                    ModelState.AddModelError("WorkEndTime", "WorkTime must be 12 or lower");
+                    return View(doctor);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("WorkEndTime", "Select else hour");
                 return View();
             }
             _context.Doctors.Add(doctor);
@@ -82,6 +101,8 @@ namespace Medicoz.Areas.manage.Controllers
             return View(doctor);
 
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Update(Doctor doctor)
         {
             ViewBag.Departments = _context.Departments;
@@ -109,12 +130,30 @@ namespace Medicoz.Areas.manage.Controllers
                 exstdoctor.ImageUrl = doctor.ImageFile.SaveFile("uploads/doctors",_env.WebRootPath);
 
             }
-            TimeSpan time = doctor.WorkEndTime - doctor.WorkStartTime;
-            if (time.TotalHours > 12 || time.TotalHours < 1)
+            if (doctor.WorkEndTime < doctor.WorkStartTime)
             {
-                ModelState.AddModelError("WorkEndTime", "work time must be greater than 1 and less than 12 ");
-                return View(doctor);
+                int time = (doctor.WorkStartTime.Hour - doctor.WorkEndTime.Hour);
+                if (time < 12)
+                {
+                    ModelState.AddModelError("WorkEndTime", "WorkTime must be 12 or lower");
+                    return View(doctor);
+                }
             }
+            else if (doctor.WorkEndTime > doctor.WorkStartTime)
+            {
+                int time = (doctor.WorkEndTime.Hour - doctor.WorkStartTime.Hour);
+                if (time > 12 || time < 1)
+                {
+                    ModelState.AddModelError("WorkEndTime", "WorkTime must be 12 or lower");
+                    return View(doctor);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("WorkEndTime", "Select else hour");
+                return View();
+            }
+            
             exstdoctor.Desc = doctor.Desc;
             exstdoctor.Name = doctor.Name;
             exstdoctor.Department = doctor.Department;

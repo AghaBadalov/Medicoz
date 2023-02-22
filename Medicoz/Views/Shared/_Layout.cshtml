@@ -146,7 +146,7 @@
                 <div class="auto-container">
                     <div class="main-box">
                         <div class="logo-box">
-                            <div class="logo"><a href="index-2.html"><img src="~/assets/images/logo.png" alt="" title=""></a></div>
+                            <div class="logo"><a href="#"><img src="~/uploads/settings/@(settings.FirstOrDefault(x=>x.Key=="HeaderLogo")?.Value)" alt="" title=""></a></div>
                         </div>
 
                         <!--Keep This Empty / Menu will come through Javascript-->
@@ -155,7 +155,7 @@
             </div><!-- End Sticky Menu -->
             <!-- Mobile Header -->
             <div class="mobile-header">
-                <div class="logo"><a href="index-2.html"><img src="~/assets/images/logo.png" alt="" title=""></a></div>
+                <div class="logo"><a href="#"><img src="~/uploads/settings/@(settings.FirstOrDefault(x=>x.Key=="HeaderLogo")?.Value)" alt="" title=""></a></div>
 
                 <!--Nav Box-->
                 <div class="nav-outer clearfix">
@@ -273,7 +273,7 @@
                                             <li>
                                                 <span class="icon flaticon-call-1"></span>
                                                 <div class="text">Mon to Fri : 08:30 - 18:00</div>
-                                                        <a href="tel:+@(settings.FirstOrDefault(x => x.Key == "phone")?.Value)"><strong>+@(settings.FirstOrDefault(x => x.Key == "phone")?.Value)</strong></a>
+                                                        <a href="tel:+@(settings.FirstOrDefault(x => x.Key == "Phone")?.Value)"><strong>+@(settings.FirstOrDefault(x => x.Key == "Phone")?.Value)</strong></a>
                                             </li>
 
                                             <li>

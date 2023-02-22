@@ -114,8 +114,81 @@ namespace Medicoz.Areas.manage.Controllers
                     ModelState.AddModelError("MiddleImage", "Image type must be png, jpg or jpeg");
                     return View(about);
                 }
+                string path = Path.Combine(_env.WebRootPath, "uploads/abouts", exstabout.MiddleImageUrl);
+                if (System.IO.File.Exists(path))
+                {
+                    System.IO.File.Delete(path);
+                }
+                about.MiddleImageUrl = about.MiddleImage.SaveFile("uploads/manage", _env.WebRootPath);
 
             }
+            if (about.SmallImage != null)
+            {
+                if (about.SmallImage.Length > 2097152)
+                {
+                    ModelState.AddModelError("SmallImage", "Image size must be 2mb or lower");
+                    return View(about);
+                }
+                if (about.SmallImage.ContentType != "image/png" && about.SmallImage.ContentType != "image/jpeg")
+                {
+                    ModelState.AddModelError("SmallImage", "Image type must be png, jpg or jpeg");
+                    return View(about);
+                }
+                string path = Path.Combine(_env.WebRootPath, "uploads/abouts", exstabout.SmallImageUrl);
+                if (System.IO.File.Exists(path))
+                {
+                    System.IO.File.Delete(path);
+                }
+                about.SmallImageUrl = about.SmallImage.SaveFile("uploads/manage", _env.WebRootPath);
+
+            }
+            if (about.BigImage != null)
+            {
+                if (about.BigImage.Length > 2097152)
+                {
+                    ModelState.AddModelError("BigImage", "Image size must be 2mb or lower");
+                    return View(about);
+                }
+                if (about.BigImage.ContentType != "image/png" && about.BigImage.ContentType != "image/jpeg")
+                {
+                    ModelState.AddModelError("BigImage", "Image type must be png, jpg or jpeg");
+                    return View(about);
+                }
+                string path = Path.Combine(_env.WebRootPath, "uploads/abouts", exstabout.BigImageUrl);
+                if (System.IO.File.Exists(path))
+                {
+                    System.IO.File.Delete(path);
+                }
+                about.BigImageUrl = about.BigImage.SaveFile("uploads/manage", _env.WebRootPath);
+
+            }
+            exstabout.Tittle=about.Tittle;
+            exstabout.Desc = about.Desc;
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
+        public IActionResult Delete(int id)
+        {
+            About about = _context.Abouts.FirstOrDefault(x => x.Id == id);
+            if (about == null) return View("error");
+            string path1 = Path.Combine(_env.WebRootPath, "uploads/abouts", about.SmallImageUrl);
+            if (System.IO.File.Exists(path1))
+            {
+                System.IO.File.Delete(path1);
+            }
+            string path2 = Path.Combine(_env.WebRootPath, "uploads/abouts", about.MiddleImageUrl);
+            if (System.IO.File.Exists(path2))
+            {
+                System.IO.File.Delete(path2);
+            }
+            string path3 = Path.Combine(_env.WebRootPath, "uploads/abouts", about.BigImageUrl);
+            if (System.IO.File.Exists(path3))
+            {
+                System.IO.File.Delete(path3);
+            }
+            _context.Abouts.Remove(about);
+            _context.SaveChanges();
+            return RedirectToAction("index");
         }
     }
 }

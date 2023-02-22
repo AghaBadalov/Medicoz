@@ -20,6 +20,7 @@ namespace Medicoz.DAL
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<About> Abouts { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
 
     }
 }
