@@ -96,7 +96,7 @@ namespace Medicoz.Areas.manage.Controllers
         {
             ViewBag.Departments = _context.Departments;
 
-            Doctor doctor =_context.Doctors.FirstOrDefault(doctor => doctor.Id == id);
+            Doctor doctor =_context.Doctors.FirstOrDefault(x => x.Id == id);
             if(doctor is null) return View("Error");
             return View(doctor);
 
@@ -107,7 +107,7 @@ namespace Medicoz.Areas.manage.Controllers
         {
             ViewBag.Departments = _context.Departments;
 
-            Doctor exstdoctor =_context.Doctors.FirstOrDefault(doctor => doctor.Id == doctor.Id);
+            Doctor exstdoctor =_context.Doctors.FirstOrDefault(x => x.Id == doctor.Id);
             if(exstdoctor is null) return View("Error");
             if (!ModelState.IsValid) return View(doctor);
             if(doctor.ImageFile != null)

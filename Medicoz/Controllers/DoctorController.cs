@@ -58,16 +58,16 @@ namespace Medicoz.Controllers
             {
                 List<string> need = new List<string>();
                 string itemStr = string.Empty;
-                for (int i = start.Hour-1; i >= end.Hour; i--)
+                for (int i = start.Hour - 1; i >= end.Hour; i--)
                 {
                     list2.Remove(i);
                 }
                 foreach (var item in list2)
                 {
-                    itemStr = (item.ToString()+":00")+" - "+((item+1).ToString()+":00");
+                    itemStr = (item.ToString() + ":00") + " - " + ((item + 1).ToString() + ":00");
                     need.Add(itemStr);
-                       
-                    
+
+
                 }
                 ViewBag.List = need;
             }
@@ -90,29 +90,90 @@ namespace Medicoz.Controllers
         public IActionResult Detail(int id, AppointmentVm appointmentVm)
         {
 
+            //List<string> strings=ViewBag.List;
+
             Doctor doctor = _context.Doctors.Include(x => x.Department).FirstOrDefault(x => x.Id == id);
             if (doctor == null) return NotFound();
             appointmentVm.Doctor = doctor;
             appointmentVm.DoctorId = doctor.Id;
-            //if (!ModelState.IsValid) return View();
+            appointmentVm.AppointmentCheck = appointmentVm.StartTime;
 
-            int startdate = appointmentVm.StartTime.Hour;
-            int starttime = appointmentVm.StartDate.DayOfYear;
-            //DateTime start = appointmentVm.Doctor.WorkStartTime;
-            //DateTime end = appointmentVm.Doctor.WorkEndTime;
-            //List<SelectListItem> list=new List<SelectListItem>();
-            //int i = 0;
-            //while (start.AddHours(1) <= end)
-            //{
-            //    list.Add(new SelectListItem() { Text = start.ToString("t") + " - " + start.AddHours(1).ToString("t"), Value = i.ToString() });
-            //    start = start.AddHours(1);
-            //    i += 1;
-            //}
-
-            foreach (var item in _context.Appointments.Where(x => x.DoctorId == doctor.Id).ToList())
+            DateTime start = appointmentVm.Doctor.WorkStartTime;
+            DateTime end = appointmentVm.Doctor.WorkEndTime;
+            List<int> list = new List<int>();
+            List<int> list2 = new List<int>();
+            for (int i = 0; i < 24; i++)
             {
+                list2.Add(i);
+            }
+            if (end.Hour > start.Hour)
+            {
+                List<string> need = new List<string>();
+                string itemStr = string.Empty;
+                for (int i = start.Hour; i < end.Hour; i++)
+                {
+                    list.Add(i);
+                }
+                foreach (var item in list)
+                {
+                    itemStr = (item.ToString() + ":00") + " - " + ((item + 1).ToString() + ":00");
+                    need.Add(itemStr);
+                }
+                ViewBag.List = need;
 
             }
+            else
+            {
+                List<string> need = new List<string>();
+                string itemStr = string.Empty;
+                for (int i = start.Hour - 1; i >= end.Hour; i--)
+                {
+                    list2.Remove(i);
+                }
+                foreach (var item in list2)
+                {
+                    itemStr = (item.ToString() + ":00") + " - " + ((item + 1).ToString() + ":00");
+                    need.Add(itemStr);
+
+
+                }
+                ViewBag.List = need;
+            }
+            if (!ModelState.IsValid) return View(appointmentVm);
+
+            var query = _context.Appointments.Where(x => x.DoctorId == doctor.Id).ToList();
+            if (appointmentVm.StartDate < DateTime.Now || appointmentVm.StartDate>DateTime.Now.AddDays(7))
+            {
+                ModelState.AddModelError("StartDate", "Choice correct date");
+                return View(appointmentVm);
+            }
+            foreach (var item in query)
+            {
+                if (appointmentVm.StartDate == item.StartDate)
+                {
+                    if (item.StartTime == appointmentVm.StartTime)
+                    {
+                        ModelState.AddModelError("StartTime", "Already reserved");
+                        return View(appointmentVm);
+                    }
+
+                }
+            }
+            Appointment appointment = new Appointment
+            {
+                Doctor = appointmentVm.Doctor,
+                DoctorId = appointmentVm.DoctorId,
+                StartDate = appointmentVm.StartDate,
+                StartTime = appointmentVm.StartTime,
+                Status = appointmentVm.Status,
+                Email = appointmentVm.Email,
+                Message = appointmentVm.Message,
+                FullName = appointmentVm.FullName,
+                Phone = appointmentVm.Phone,
+                AppointmentTime = appointmentVm.AppointmentTime,
+            };
+            _context.Appointments.Add(appointment);
+            _context.SaveChanges();
             return RedirectToAction("index");
 
         }

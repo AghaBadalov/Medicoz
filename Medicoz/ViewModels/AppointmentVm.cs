@@ -20,11 +20,12 @@ namespace Medicoz.ViewModels
         [StringLength(maximumLength: 250)]
         public string Message { get; set; }
         public Status Status { get; set; }
-        public DateTime AppointmentTime { get; set; }
-        [DataType(DataType.Time)]
-        public DateTime StartTime { get; set; }
+        public DateTime AppointmentTime { get; set; }=DateTime.Now;
+        //[DataType(DataType.Time)]
+        public string StartTime { get; set; }
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
         public Doctor? Doctor { get; set; }
+        public string? AppointmentCheck { get; set; }
     }
 }

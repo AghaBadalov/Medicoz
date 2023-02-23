@@ -71,12 +71,14 @@
 
                             </div>
                             <div class="form-group col-lg-12 col-md-12">
-                                <input asp-for="StartDate" placeholder="Your Email ">
+                                <input value="@DateTime.Now" asp-for="StartDate" placeholder="Your Email ">
                                 <span asp-validation-for="StartDate" class="text-danger"></span>
 
                             </div>
                             <div class="form-group col-lg-12 col-md-12">
+                                <input type="hidden" value="@Model.StartTime" asp-for="@Model.AppointmentCheck" />
                                 <select asp-for="StartTime"  asp-items="@(new SelectList(ViewBag.List))"></select>
+                                <span class="text-danger" asp-validation-for="StartTime"></span >
 
                             </div>
                             

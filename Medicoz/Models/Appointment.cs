@@ -20,8 +20,8 @@ namespace Medicoz.Models
         public string Message { get; set; }
         public Status Status { get; set; }
         public DateTime AppointmentTime { get; set; }
-        [DataType(DataType.Time)]
-        public DateTime StartTime { get; set; }
+        //[DataType(DataType.Time)]
+        public string StartTime { get; set; }
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
         public Doctor? Doctor { get; set; }

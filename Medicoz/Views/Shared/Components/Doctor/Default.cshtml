@@ -11,8 +11,8 @@
             @foreach (var item in Model)
             {
                 <div class="team-block col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
-                    <div class="inner-box">
-                        <figure class="image"><img src="~/uploads/doctors/@item.ImageUrl" alt=""></figure>
+                    <div class="inner-box" style="width:200px; height:300px">
+                        <figure class="image"  style="height:100%"><img src="~/uploads/doctors/@item.ImageUrl" alt="" style="height:100%"></figure>
                         <ul class="social-links">
                             @if(@item.FBUrl!=null){
 
