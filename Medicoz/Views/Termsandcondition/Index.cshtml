@@ -1,0 +1,43 @@
+﻿@model List<TermandCondition>
+<!-- Terms And Conditions -->
+<section class="terms-and-condition">
+    <div class="auto-container">
+        <div class="tnc-tabs tabs-box">
+            <div class="row">
+                <div class="column col-xl-3 col-lg-4 col-md-12 col-sm-12">
+                    <!--Tab Btns-->
+                    <ul class="tab-buttons">
+                        @foreach (var item in Model)
+                        {
+                            <li data-tab="#tab-@item.Id"  class="tab-btn">@item.Name</li>
+                        }
+                        @*<li data-tab="#tab-b" class="tab-btn">Our Terms</li>
+                        <li data-tab="#tab-c" class="tab-btn">Conditions</li>
+                        <li data-tab="#tab-d" class="tab-btn active-btn">Your Privacy</li>
+                        <li data-tab="#tab-e" class="tab-btn">Informations We Collect</li>
+                        <li data-tab="#tab-f" class="tab-btn">Security</li>
+                        <li data-tab="#tab-g" class="tab-btn">Privacy Policy Update</li>*@
+                    </ul>
+                </div>
+
+                <div class="column col-xl-9 col-lg-8 col-md-12 col-sm-12">
+                    <!--Tabs Container-->
+                    <div class="tabs-content">
+                        <!--Tab-->
+                        @foreach (var item in Model)
+                        {
+                            <div class="tab" id="tab-@item.Id">
+                                <h4>@item.Name</h4>
+                                <p>@item.Desc</p>
+                                
+                            </div>
+                        }
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Terms And Conditions -->

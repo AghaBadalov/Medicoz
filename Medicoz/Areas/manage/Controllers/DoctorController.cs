@@ -201,7 +201,6 @@ namespace Medicoz.Areas.manage.Controllers
             _context.Doctors.Remove(doctor);
             _context.SaveChanges();
             return RedirectToAction("deleteddoctors");
-
         }
 
 

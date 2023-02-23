@@ -25,13 +25,14 @@ namespace Medicoz.Areas.manage.Controllers
         }
         public IActionResult Create()
         {
+            if (_context.Abouts.Count() > 0) return NotFound();
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(About about)
         {
-            if (_context.Abouts.Count() > 0) return NotFound();
+           
             if (!ModelState.IsValid) return View();
             if(about.MiddleImage is null)
             {

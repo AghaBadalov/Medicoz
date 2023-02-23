@@ -22,7 +22,7 @@ namespace Medicoz.Models
         public DateTime AppointmentTime { get; set; }
         [DataType(DataType.Time)]
         public DateTime StartTime { get; set; }
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
         public Doctor? Doctor { get; set; }
     }
