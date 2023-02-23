@@ -36,12 +36,16 @@
         <span asp-validation-for="ImageFile" class="text-danger"></span>
 
     </div>
-    
-    
+
+    <div>
+        <img style="max-width:100px" src="~/uploads/departments/@Model.Imageurl" alt="">
+        <input type="hidden" asp-for="@Model.Imageurl" />
+    </div>
 
 
 
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
 

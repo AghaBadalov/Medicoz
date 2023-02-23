@@ -15,6 +15,11 @@
                         <th scope="col">#</th>
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Desc1</th>
+                        <th scope="col">Desc2</th>
+                        <th scope="col">Tittle</th>
+                        <th scope="col">Icon</th>
+                        <th scope="col">Image</th>
                         
                         <th scope="col">Actions</th>
                     </tr>
@@ -27,6 +32,16 @@
                         <th scope="row">@counter</th>
                         <td>@department.Id</td>
                         <td>@department.Name</td>
+                        <td>@department.Description1</td>
+                        <td>@department.Description2</td>
+                        <td>@department.Tittle</td>
+                        <td> <div class="icon-box">@Html.Raw(department.IconUrl)</div></td>
+
+                        
+                        
+                        <td>
+                            <div><img style="max-width:100px" src="~/uploads/departments/@department.Imageurl" alt=""></div>
+                        </td>
                         
 
 
