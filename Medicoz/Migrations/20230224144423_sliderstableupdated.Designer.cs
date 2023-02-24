@@ -4,6 +4,7 @@ using Medicoz.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Medicoz.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230224144423_sliderstableupdated")]
+    partial class sliderstableupdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,31 +33,21 @@ namespace Medicoz.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("BigImageUrl")
-                        .HasMaxLength(101)
-                        .HasColumnType("nvarchar(101)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Desc")
                         .IsRequired()
-                        .HasMaxLength(140)
-                        .HasColumnType("nvarchar(140)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MiddleImageUrl")
-                        .HasMaxLength(101)
-                        .HasColumnType("nvarchar(101)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SmallImageUrl")
-                        .HasMaxLength(101)
-                        .HasColumnType("nvarchar(101)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tittle")
                         .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
-
-                    b.Property<string>("VideoUrl")
-                        .IsRequired()
-                        .HasMaxLength(101)
-                        .HasColumnType("nvarchar(101)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -290,29 +282,6 @@ namespace Medicoz.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Features");
-                });
-
-            modelBuilder.Entity("Medicoz.Models.FunFact", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Icon")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Tittle")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FunFacts");
                 });
 
             modelBuilder.Entity("Medicoz.Models.Plan", b =>

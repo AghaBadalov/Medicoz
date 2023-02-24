@@ -94,8 +94,7 @@ namespace Medicoz.Areas.manage.Controllers
                 exstsilder.ImageUrl = slider.ImageFile.SaveFile("uploads/sliders", _env.WebRootPath);
             }
             exstsilder.Desc = slider.Desc;
-            exstsilder.Button1 = slider.Button1;
-            exstsilder.Button2 = slider.Button2;
+            
             exstsilder.Tittle = slider.Tittle;
             exstsilder.Tittle2 = slider.Tittle2;
             _context.SaveChanges();

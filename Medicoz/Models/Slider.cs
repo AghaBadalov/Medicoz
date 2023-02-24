@@ -14,13 +14,7 @@ namespace Medicoz.Models
         [StringLength(maximumLength: 50)]
 
         public string Desc { get; set; }
-        [StringLength(maximumLength: 15)]
-
-        public string Button1 { get; set; }
-        [StringLength(maximumLength: 15)]
-
         
-        public string Button2 { get; set; }
         [StringLength(maximumLength: 130)]
         public string? ImageUrl { get; set; }
         public bool IsDeleted { get; set; }

@@ -22,6 +22,7 @@ namespace Medicoz.DAL
         public DbSet<About> Abouts { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<FunFact> FunFacts { get; set; }
         
 
     }

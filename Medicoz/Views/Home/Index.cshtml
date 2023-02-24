@@ -28,7 +28,7 @@
                          data-y="['middle','middle','middle','middle']"
                          data-textalign="['top','top','top','top']"
                          data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <span class="title">Welcome to our Medical Care Center </span>
+                            <span class="title">@item.Tittle </span>
                         </div>
 
                         <div class="tp-caption"
@@ -47,7 +47,7 @@
                          data-y="['middle','middle','middle','middle']"
                          data-textalign="['top','top','top','top']"
                          data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <h2>We take care our <br>patients health</h2>
+                            <h2>@item.Tittle2</h2>
                         </div>
 
                         <div class="tp-caption"
@@ -66,7 +66,7 @@
                          data-y="['middle','middle','middle','middle']"
                          data-textalign="['top','top','top','top']"
                          data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="text">I realized that becoming a doctor, I can only help a small community. <br>But by becoming a doctor, I can help my whole country. </div>
+                            <div class="text">@item.Desc </div>
                         </div>
 
                         <div class="tp-caption tp-resizeme"
@@ -86,8 +86,8 @@
                          data-textalign="['top','top','top','top']"
                          data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
                             <div class="btn-box">
-                                <a href="about-us.html" class="theme-btn btn-style-one"><span class="btn-title">About Us</span></a>
-                                <a href="departments.html" class="theme-btn btn-style-two"><span class="btn-title">Our Services</span></a>
+                                <a asp-action="index" asp-controller="about"  class="theme-btn btn-style-one"><span class="btn-title">About Us</span></a>
+                                <a  asp-action="index" asp-controller="service" class="theme-btn btn-style-two"><span class="btn-title">Our Services</span></a>
                             </div>
                         </div>
                     </li>
@@ -106,76 +106,25 @@
     <section class="top-features">
         <div class="auto-container">
             <div class="row">
-                <!-- Feature Block -->
-                <div class="feature-block col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <span class="icon flaticon-charity"></span>
-                        <h4><a href="#">Quality & Safety</a></h4>
-                        <p>Our Delmont hospital utilizes state of the art technology and employs a team of true experts.</p>
-                    </div>
-                </div>
+                
 
+                @foreach (var item in Model.Features)
+            {
                 <!-- Feature Block -->
                 <div class="feature-block col-lg-4 col-md-6 col-sm-12">
                     <div class="inner-box">
-                        <span class="icon flaticon-lifeline"></span>
-                        <h4><a href="#">Leading Technology</a></h4>
-                        <p>Our Delmont hospital utilizes state of the art technology and employs a team of true experts.</p>
+                        @Html.Raw(item.Icon)
+                        <h4><a href="#">@item.Tittle</a></h4>
+                        <p>@item.Desc</p>
                     </div>
                 </div>
-
-                <!-- Feature Block -->
-                <div class="feature-block col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <span class="icon flaticon-doctor"></span>
-                        <h4><a href="#">Experts by Experience</a></h4>
-                        <p>Our Delmont hospital utilizes state of the art technology and employs a team of true experts.</p>
-                    </div>
-                </div>
+            }
             </div>
         </div>
     </section>
     <!-- End Features Section -->
-
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="auto-container">
-            <div class="row">
-                <!-- Content Column -->
-                <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
-                    <div class="inner-column">
-                        <div class="sec-title">
-                            <span class="sub-title">OUR MEDICAL</span>
-                            <h2>We're setting Standards in Research what's more, Clinical Care.</h2>
-                            <span class="divider"></span>
-                            <p>We provide the most full medical services, so every person could have the pportunity o receive qualitative medical help.</p>
-                            <p> Our Clinic has grown to provide a world class facility for the treatment of tooth loss, dental cosmetics and bore advanced restorative dentistry. We are among the most qualified implant providers in the AUS with over 30 years of uality training and experience.</p>
-                        </div>
-                        <div class="link-box">
-                            <figure class="signature"><img src="~/assets/images/resource/signature.png" alt=""></figure>
-                            <a href="#" class="theme-btn btn-style-one"><span class="btn-title">More About</span></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Images Column -->
-                <div class="images-column col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-column">
-                        <div class="video-link">
-                            <a href="https://www.youtube.com/watch?v=4UvS3k8D4rs" class="play-btn lightbox-image" data-fancybox="images"><span class="flaticon-play-button-1"></span></a>
-                        </div>
-                        <figure class="image-1"><img src="~/assets/images/resource/image-1.png" alt=""></figure>
-                        <figure class="image-2"><img src="~/assets/images/resource/image-2.png" alt=""></figure>
-                        <figure class="image-3">
-                            <span class="hex"></span>
-                            <img src="~/assets/images/resource/image-3.png" alt="">
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End About Section -->
+@await Component.InvokeAsync("About");
+    
 
     @await Component.InvokeAsync("Service");
 
@@ -190,8 +139,8 @@
                     <div class="inner-column">
                         <span class="title">Need a Doctor for Check-up?</span>
                         <h2>Just Make an Appointment <br>and You’re Done!</h2>
-                        <div class="number">Get Your Quote or Call: <strong>(0080) 123-453-789</strong></div>
-                        <a href="#" class="theme-btn btn-style-three"><span class="btn-title">Get an Appointment</span></a>
+                        
+                        <a asp-action="index" asp-controller="doctor" class="theme-btn btn-style-three"><span class="btn-title">Get an Appointment</span></a>
                     </div>
                 </div>
                 <div class="image-column col-lg-6 col-md-12 col-sm-12">
@@ -205,8 +154,8 @@
                     <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
                         <div class="count-box">
                             <div class="icon-box"><span class="icon flaticon-user-experience"></span></div>
-                            <h4 class="counter-title">Years of Experience</h4>
-                            <span class="count-text" data-speed="3000" data-stop="25">0</span>
+                            <h4 class="counter-title">Number of Doctors</h4>
+                            <span class="count-text" data-speed="3000" data-stop="@Model.Doctorcount">0</span>
                         </div>
                     </div>
 
@@ -214,8 +163,8 @@
                     <div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
                         <div class="count-box">
                             <div class="icon-box"><span class="icon flaticon-team"></span></div>
-                            <h4 class="counter-title">Medical Spesialities</h4>
-                            <span class="count-text" data-speed="3000" data-stop="470">0</span>
+                            <h4 class="counter-title">Number of Departments</h4>
+                            <span class="count-text" data-speed="3000" data-stop="@Model.Departmentcount">0</span>
                         </div>
                     </div>
 
@@ -242,6 +191,7 @@
     </section>
     <!-- End Appointment Section -->
 
+    
     <!-- Testimonial Section -->
     <section class="testimonial-section">
         <div class="auto-container">
@@ -255,86 +205,28 @@
             <div class="testimonial-outer">
                 <!-- Client Testimonial Carousel -->
                 <div class="client-testimonial-carousel owl-carousel owl-theme">
-                
-                    <!--Testimonial Block -->
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-                            <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues. Thanks!</div>
-                        </div>
-                    </div>
-                    
-                    <!--Testimonial Block -->
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-                            <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues. Thanks!</div>
-                        </div>
-                    </div>
-                    
-                    <!--Testimonial Block -->
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-                            <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues. Thanks!</div>
-                        </div>
-                    </div>
 
+                @foreach (var item in Model.Testimonials)
+            {
+                    <!--Testimonial Block -->
                     <!--Testimonial Block -->
                     <div class="testimonial-block">
                         <div class="inner-box">
                             <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues. Thanks!</div>
                         </div>
-                    </div>
-                    
-                    <!--Testimonial Block -->
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-                            <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues. Thanks!</div>
+                        <div class="thumb-item" style="display:flex;align-items:center;justify-content:center;flex-direction:column">
+                            <figure class="thumb-box"><img style="width:100px;height:100px;border-radius:100%" src="~/uploads/testimonials/@item.ImageUrl" alt=""></figure>
+                            <div class="author-info" style="text-align">
+                                <div class="author-name">Lara Croft</div>
+                                <div class="designation">Restaurant Owner</div>
+                            </div>
                         </div>
                     </div>
+            }
                 </div>
 
-                <!-- Product Thumbs Carousel -->
                 <div class="client-thumb-outer">
                     <div class="client-thumbs-carousel owl-carousel owl-theme">
-                        <div class="thumb-item">
-                            <figure class="thumb-box"><img src="~/assets/images/resource/testi-thumb-1.jpg" alt=""></figure>
-                            <div class="author-info">
-                                <span class="icon fa fa-quote-left"></span>
-                                <div class="author-name">Lara Croft</div>
-                                <div class="designation">Restaurant Owner</div>
-                            </div>
-                        </div>
-                        <div class="thumb-item">
-                            <figure class="thumb-box"><img src="~/assets/images/resource/testi-thumb-2.jpg" alt=""></figure>
-                            <div class="author-info">
-                                <span class="icon fa fa-quote-left"></span>
-                                <div class="author-name">Lara Croft</div>
-                                <div class="designation">Restaurant Owner</div>
-                            </div>
-                        </div>
-                        <div class="thumb-item">
-                            <figure class="thumb-box"><img src="~/assets/images/resource/testi-thumb-3.jpg" alt=""></figure>
-                            <div class="author-info">
-                                <span class="icon fa fa-quote-left"></span>
-                                <div class="author-name">Lara Croft</div>
-                                <div class="designation">Restaurant Owner</div>
-                            </div>
-                        </div>
-                        <div class="thumb-item">
-                            <figure class="thumb-box"><img src="~/assets/images/resource/testi-thumb-2.jpg" alt=""></figure>
-                            <div class="author-info">
-                                <span class="icon fa fa-quote-left"></span>
-                                <div class="author-name">Lara Croft</div>
-                                <div class="designation">Restaurant Owner</div>
-                            </div>
-                        </div>
-                        <div class="thumb-item">
-                            <figure class="thumb-box"><img src="~/assets/images/resource/testi-thumb-3.jpg" alt=""></figure>
-                            <div class="author-info">
-                                <span class="icon fa fa-quote-left"></span>
-                                <div class="author-name">Lara Croft</div>
-                                <div class="designation">Restaurant Owner</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -354,84 +246,34 @@
             <div class="outer-box">
                 <div class="row">
                     <!-- Pricing Block -->
+                    
+
+                    
+                    @foreach (var item in Model.Plans)
+                {
                     <div class="pricing-block col-lg-3 col-md-6 col-sm-12">
                         <div class="inner-box">
                             <div class="price-box">
-                                <h4 class="price">$299</h4>
-                                <div class="validaty">Per Month</div>
+                                <h4 class="price">$@item.Price</h4>
+                                <div class="validaty">@item.Planperiod</div>
                             </div>
-                            <h3 class="title">Cardiology</h3>
+                            <h3 class="title">@item.PlanCategory.Name</h3>
                             <ul class="features">
-                                <li>Functional Diagnotics</li>
-                                <li>Allergens Drugs</li>
-                                <li>Pollen Allergens</li>
-                                <li>Food Allergens</li>
+                                <li>@item.Feature1</li>
+                                <li>@item.Feature2</li>
+                                <li>@item.Feature3</li>
+                                <li>@item.Feature4</li>
                             </ul>
                             <div class="btn-box">
                                 <a href="#" class="theme-btn">Get Offer</a>
                             </div>
                         </div>
                     </div>
+                }
+                    
 
                     <!-- Pricing Block -->
-                    <div class="pricing-block col-lg-3 col-md-6 col-sm-12">
-                        <div class="inner-box">
-                            <div class="price-box">
-                                <h4 class="price">$120</h4>
-                                <div class="validaty">Per Month</div>
-                            </div>
-                            <h3 class="title">Detal Care</h3>
-                            <ul class="features">
-                                <li>Tooth implantation</li>
-                                <li>Lase Dentistry</li>
-                                <li>Tests and Treatment</li>
-                                <li>Medical Consultation</li>
-                            </ul>
-                            <div class="btn-box">
-                                <a href="#" class="theme-btn">Get Offer</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pricing Block -->
-                    <div class="pricing-block col-lg-3 col-md-6 col-sm-12">
-                        <div class="inner-box">
-                            <div class="price-box">
-                                <h4 class="price">$150</h4>
-                                <div class="validaty">Per Month</div>
-                            </div>
-                            <h3 class="title">Body Checkup</h3>
-                            <ul class="features">
-                                <li>Tests and Treatment</li>
-                                <li>Tests and Treatment</li>
-                                <li>Laboratory Services</li>
-                                <li>Food Allergens</li>
-                            </ul>
-                            <div class="btn-box">
-                                <a href="#" class="theme-btn">Get Offer</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pricing Block -->
-                    <div class="pricing-block col-lg-3 col-md-6 col-sm-12">
-                        <div class="inner-box">
-                            <div class="price-box">
-                                <h4 class="price">$100</h4>
-                                <div class="validaty">Per Month</div>
-                            </div>
-                            <h3 class="title">Blood Test</h3>
-                            <ul class="features">
-                                <li>Blood Test Service</li>
-                                <li>Safety Training Tips</li>
-                                <li>Tests and Treatment</li>
-                                <li>Food Allergens</li>
-                            </ul>
-                            <div class="btn-box">
-                                <a href="#" class="theme-btn">Get Offer</a>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -527,11 +369,11 @@
             <div class="sponsors-outer">
                 <!--clients carousel-->
                 <ul class="clients-carousel owl-carousel owl-theme">
-                    <li class="slide-item"> <a href="#"><img src="~/assets/images/clients/1.png" alt=""></a> </li>
-                    <li class="slide-item"> <a href="#"><img src="~/assets/images/clients/2.png" alt=""></a> </li>
-                    <li class="slide-item"> <a href="#"><img src="~/assets/images/clients/3.png" alt=""></a> </li>
-                    <li class="slide-item"> <a href="#"><img src="~/assets/images/clients/4.png" alt=""></a> </li>
-                    <li class="slide-item"> <a href="#"><img src="~/assets/images/clients/5.png" alt=""></a> </li>
+                    @foreach (var item in Model.Ads)
+                {
+                    <li class="slide-item"> <a href="#"><img src="~/uploads/ad/@item.ImageUrl" alt=""></a> </li>
+                }
+                    
                 </ul>
             </div>
         </div>

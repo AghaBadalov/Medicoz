@@ -23,6 +23,11 @@ namespace Medicoz.Controllers
             {
                 Sliders=_context.Sliders.Where(x=>x.IsDeleted==false).ToList(),
                 Plans=_context.Plans.Where(x=>x.IsDeleted==false).Include(x=>x.PlanCategory).ToList(),
+                Features=_context.Features.Where(x=>x.IsDeleted==false).ToList(),
+                Ads=_context.Ads.Where(x=>x.Isdeleted==false).ToList(),
+                Testimonials=_context.Testimonials.Where(x => x.IsDeleted == false).ToList(),
+                Doctorcount=_context.Doctors.Count(),
+                Departmentcount=_context.Departments.Count(),
             };
             return View(vm);
         }
