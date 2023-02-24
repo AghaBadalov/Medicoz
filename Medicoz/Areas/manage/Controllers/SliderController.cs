@@ -25,7 +25,7 @@ namespace Medicoz.Areas.manage.Controllers
         }
         public IActionResult DeletedSliders(int page=1)
         {
-            var query = _context.Sliders.Where(x => x.IsDeleted == false).AsQueryable();
+            var query = _context.Sliders.Where(x => x.IsDeleted == true).AsQueryable();
             PaginatedList<Slider> sliders = PaginatedList<Slider>.Create(query, 6, page);
             return View(sliders);
         }

@@ -1,28 +1,27 @@
-﻿@using Medicoz.ViewModels
-@model List<Plan>
+﻿@model List<Plan>
 <!-- Pricing Section -->
 <section class="pricing-section">
     <div class="auto-container">
         <div class="sec-title text-center">
             <span class="sub-title">Our Pricing</span>
             <h2>Pricing Plan</h2>
-            <ul class="tab-buttons clearfix">
-                <li class="tab-btn active-btn" data-tab="Monthly">Monthly</li>
-                <li class="tab-btn" data-tab="Yearly">Yearly</li>
-            </ul>
             <span class="divider"></span>
         </div>
 
         <div class="outer-box">
             <div class="row">
-                <!-- Pricing Block -->
+                
+
+                
+
                 @foreach (var item in Model)
                 {
-                    <div class="pricing-block col-lg-3 col-md-6 col-sm-12" >
+                    <!-- Pricing Block -->
+                    <div class="pricing-block col-lg-3 col-md-6 col-sm-12">
                         <div class="inner-box">
-                            <div class="price">
+                            <div class="price-box">
                                 <h4 class="price">$@item.Price</h4>
-                                <div class="validaty">Per @item.Planperiod</div>
+                                <div class="validaty">@item.Planperiod</div>
                             </div>
                             <h3 class="title">@item.PlanCategory.Name</h3>
                             <ul class="features">
@@ -30,6 +29,7 @@
                                 <li>@item.Feature2</li>
                                 <li>@item.Feature3</li>
                                 <li>@item.Feature4</li>
+                                
                             </ul>
                             <div class="btn-box">
                                 <a href="#" class="theme-btn">Get Offer</a>
@@ -38,7 +38,6 @@
                     </div>
                 }
 
-               
                 
             </div>
         </div>
