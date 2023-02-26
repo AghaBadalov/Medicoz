@@ -1,13 +1,17 @@
 ﻿using Medicoz.DAL;
 using Medicoz.Helpers;
 using Medicoz.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Configuration;
+using System.Data;
 using Settings = Medicoz.Models.Settings;
 
 namespace Medicoz.Areas.manage.Controllers
 {
     [Area("manage")]
+    [Authorize(Roles = ("SuperAdmin,Admin"))]
+
     public class SettingController : Controller
     {
         private readonly AppDbContext _context;

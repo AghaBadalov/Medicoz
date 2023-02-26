@@ -11,6 +11,9 @@ namespace Medicoz.ViewModels
         public List<Testimonial> Testimonials { get; set; }
         public int Departmentcount { get; set; }
         public int Doctorcount { get; set; }
+        public int ReservationCount { get; set; }
+        public int MemberCount { get; set; }
+
 
 
     }

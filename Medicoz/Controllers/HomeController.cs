@@ -28,6 +28,8 @@ namespace Medicoz.Controllers
                 Testimonials=_context.Testimonials.Where(x => x.IsDeleted == false).ToList(),
                 Doctorcount=_context.Doctors.Count(),
                 Departmentcount=_context.Departments.Count(),
+                MemberCount=_context.Users.Count(),
+                ReservationCount=_context.Appointments.Count()
             };
             return View(vm);
         }

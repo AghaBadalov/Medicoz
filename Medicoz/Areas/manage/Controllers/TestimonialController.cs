@@ -2,12 +2,16 @@
 using Medicoz.Helpers;
 using Medicoz.Migrations;
 using Medicoz.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Build.Framework;
+using System.Data;
 
 namespace Medicoz.Areas.manage.Controllers
 {
     [Area("manage")]
+    [Authorize(Roles = ("SuperAdmin,Admin"))]
+
     public class TestimonialController : Controller
     {
         private readonly AppDbContext _context;

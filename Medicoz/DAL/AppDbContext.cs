@@ -1,9 +1,10 @@
 ﻿using Medicoz.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Medicoz.DAL
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -22,7 +23,7 @@ namespace Medicoz.DAL
         public DbSet<About> Abouts { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
-        public DbSet<FunFact> FunFacts { get; set; }
+        public DbSet<AppUser> Users { get; set; }
         
 
     }

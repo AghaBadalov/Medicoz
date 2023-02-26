@@ -1,13 +1,17 @@
 ﻿using Medicoz.DAL;
 using Medicoz.Helpers;
 using Medicoz.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 
 namespace Medicoz.Areas.manage.Controllers
 {
     [Area("manage")]
+    [Authorize(Roles = ("SuperAdmin,Admin"))]
+
     public class DoctorController : Controller
     {
         private readonly AppDbContext _context;
