@@ -16,12 +16,12 @@ namespace Medicoz.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        public IActionResult Login()
+        public IActionResult UserLogin()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Login(UserLoginVM userLoginVM)
+        public async Task<IActionResult> UserLogin(UserLoginVM userLoginVM)
         {
             if(!ModelState.IsValid) return View(userLoginVM);
             
