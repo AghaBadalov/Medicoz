@@ -92,20 +92,6 @@
 <!-- End Testimonial Section -->
 <!-- Clients Section -->
 <!-- Clients Section -->
-<section class="clients-section">
-    <div class="auto-container">
+@await Component.InvokeAsync("Ad");
 
-        <!-- Sponsors Outer -->
-        <div class="sponsors-outer">
-            <!--clients carousel-->
-            <ul class="clients-carousel owl-carousel owl-theme">
-                @foreach (var item in Model.Ads)
-                {
-                    <li class="slide-item"> <a href="#"><img src="~/uploads/ad/@item.ImageUrl" alt=""></a> </li>
-                }
-
-            </ul>
-        </div>
-    </div>
-</section>
 <!--End Clients Section -->

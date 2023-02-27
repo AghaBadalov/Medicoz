@@ -24,6 +24,8 @@ namespace Medicoz.DAL
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<AppUser> Users { get; set; }
+        public DbSet<BlogPost> BlogPosts { get; set; }
+        public DbSet<BlogComment> BlogComments { get; set; }
         
 
     }

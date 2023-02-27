@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Comments";
+}
+
+@model List<BlogComment>
+@{
+    int counter = 0;
+}
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-8">
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Comment</th>
+                    <th scope="col">CommentTime</th>
+                    <th scope="col">UserName</th>
+
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (BlogComment comment in Model)
+                {
+                    counter++;
+                    <tr>
+                        <th scope="row">@counter</th>
+                        <td>@comment.Id</td>
+                        <td>@comment.Comment</td>
+                        <td>@comment.CommentTime.Date.ToString("t")</td>
+                        <td>@comment.UserName</td>
+
+                        
+                        <td>
+                            <a asp-action="deletecomment" asp-controller="blogpost" asp-route-id="@comment.Id" class="btn btn-outline-danger m-2 delete-button">Delete</a>
+                            
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

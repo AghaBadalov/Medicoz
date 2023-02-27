@@ -72,7 +72,7 @@ namespace Medicoz.Controllers
             return RedirectToAction("login", "account");
 
         }
-        public async Task<IActionResult> Logout()
+        public async Task<IActionResult> UserLogout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("index", "home");
