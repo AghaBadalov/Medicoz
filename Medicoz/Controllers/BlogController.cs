@@ -77,7 +77,7 @@ namespace Medicoz.Controllers
             comment.Email = blogVM.Email;
             
             if (!ModelState.IsValid) return View(blogVM);
-
+            comment.CommentTime=DateTime.Now;
             _context.BlogComments.Add(comment);
             _context.SaveChanges();
 

@@ -3,6 +3,7 @@ using Medicoz.Helpers;
 using Medicoz.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Build.Framework;
+using Microsoft.EntityFrameworkCore;
 
 namespace Medicoz.Areas.manage.Controllers
 {
@@ -30,9 +31,12 @@ namespace Medicoz.Areas.manage.Controllers
             
             return View(post);
         }
-        public IActionResult Comments(int id)
+        public IActionResult Comments(int id,int page=1)
         {
-            List<BlogComment> comments=_context.BlogComments.Where(x=>x.BlogPostId==id).ToList();
+            BlogPost post = _context.BlogPosts.Include(x=>x.Comments).FirstOrDefault(x => x.Id == id);
+            if (post == null) return NotFound();
+            var query = _context.BlogComments.Include(x => x.BlogPost).Where(x => x.BlogPostId == post.Id).AsQueryable();
+            PaginatedList<BlogComment> comments = PaginatedList<BlogComment>.Create(query, 5, page);
             return View(comments);
         }
         public IActionResult DeleteComment(int id)

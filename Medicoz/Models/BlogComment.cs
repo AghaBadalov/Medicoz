@@ -13,8 +13,8 @@ namespace Medicoz.Models
         public string? Email { get; set; }
         [StringLength(maximumLength:100,MinimumLength =2)]
         public string Comment { get; set; }
-        
-        public DateTime CommentTime { get; set; }=DateTime.Now;
+        [DataType(DataType.Date)]
+        public DateTime CommentTime { get; set; }
         public BlogPost? BlogPost { get; set; }
 
     }
