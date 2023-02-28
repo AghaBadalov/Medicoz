@@ -12,6 +12,7 @@ namespace Medicoz.ViewModels
         public int DepartmentCount { get; set; }
         public int DoctorCount { get; set; }
         public int UserCount { get; set; }
+        public int AppointmentCount { get; set; }
 
     }
 }

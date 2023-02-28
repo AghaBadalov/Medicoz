@@ -23,6 +23,8 @@ namespace Medicoz.Controllers
                 Doctors = _context.Doctors.Where(x => x.IsDeleted == false).ToList(),
                 DepartmentCount = _context.Departments.Count(),
                 DoctorCount = _context.Doctors.Count(),
+                AppointmentCount = _context.Appointments.Count(),
+                UserCount = _context.Users.Count(),
             };
             
             return View(vm);

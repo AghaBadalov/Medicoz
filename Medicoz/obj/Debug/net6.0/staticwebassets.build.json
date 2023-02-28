@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4qI9E7PBs70FQphsJqxwuxSEWraRp3QMRQTGHOjABHA=",
+  "Hash": "P8CS+Gh/smm0NRiPIKta5CK5oQH8aZq8dp31wmv3/NM=",
   "Source": "Medicoz",
   "BasePath": "_content/Medicoz",
   "Mode": "Default",
@@ -6424,6 +6424,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\doctors\\8a79d1a0-b12a-48b0-ac19-6f9cc6369d192.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Medicoz\\Medicoz\\wwwroot\\uploads\\doctors\\921c1a01-3f95-401e-9d33-32297998c798team-10.jpg",
+      "SourceId": "Medicoz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Medicoz\\Medicoz\\wwwroot\\",
+      "BasePath": "_content/Medicoz",
+      "RelativePath": "uploads/doctors/921c1a01-3f95-401e-9d33-32297998c798team-10.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\doctors\\921c1a01-3f95-401e-9d33-32297998c798team-10.jpg"
     },
     {
       "Identity": "C:\\Users\\lenovo\\OneDrive\\Desktop\\Medicoz\\Medicoz\\wwwroot\\uploads\\doctors\\95a0832b-d2ea-4c46-a358-cb38f221dc6d4-2.jpg",

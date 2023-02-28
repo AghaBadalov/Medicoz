@@ -190,96 +190,12 @@
         </div>
     </section>
     <!-- End Appointment Section -->
+@await Component.InvokeAsync("Testimonial");
 
-    
-    <!-- Testimonial Section -->
-    <section class="testimonial-section">
-        <div class="auto-container">
-            <!-- Sec Title -->
-            <div class="sec-title text-center">
-                <span class="title">HAPPY Patient</span>
-                <h2>What Says Our Patients</h2>
-                <span class="divider"></span>
-            </div>
-            
-            <div class="testimonial-outer">
-                <!-- Client Testimonial Carousel -->
-                <div class="client-testimonial-carousel owl-carousel owl-theme">
 
-                @foreach (var item in Model.Testimonials)
-            {
-                    <!--Testimonial Block -->
-                    <!--Testimonial Block -->
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-                            <div class="text">Medical Centre is a great place to get all of your medical needs. I came in for a check up and did not wait more than 5 minutes before I was seen. I can only imagine the type of service you get for more serious issues. Thanks!</div>
-                        </div>
-                        <div class="thumb-item" style="display:flex;align-items:center;justify-content:center;flex-direction:column">
-                            <figure class="thumb-box"><img style="width:100px;height:100px;border-radius:100%" src="~/uploads/testimonials/@item.ImageUrl" alt=""></figure>
-                            <div class="author-info" style="text-align">
-                                <div class="author-name">Lara Croft</div>
-                                <div class="designation">Restaurant Owner</div>
-                            </div>
-                        </div>
-                    </div>
-            }
-                </div>
 
-                <div class="client-thumb-outer">
-                    <div class="client-thumbs-carousel owl-carousel owl-theme">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Testimonial Section -->
+@await Component.InvokeAsync("Pricing");
 
-    <!-- Pricing Section -->
-    <section class="pricing-section">
-        <div class="auto-container">
-            <div class="sec-title text-center">
-                <span class="sub-title">Our Pricing</span>
-                <h2>Pricing Plan</h2>
-                <span class="divider"></span>
-            </div>
-
-            <div class="outer-box">
-                <div class="row">
-                    <!-- Pricing Block -->
-                    
-
-                    
-                    @foreach (var item in Model.Plans)
-                {
-                    <div class="pricing-block col-lg-3 col-md-6 col-sm-12">
-                        <div class="inner-box">
-                            <div class="price-box">
-                                <h4 class="price">$@item.Price</h4>
-                                <div class="validaty">@item.Planperiod</div>
-                            </div>
-                            <h3 class="title">@item.PlanCategory.Name</h3>
-                            <ul class="features">
-                                <li>@item.Feature1</li>
-                                <li>@item.Feature2</li>
-                                <li>@item.Feature3</li>
-                                <li>@item.Feature4</li>
-                            </ul>
-                            <div class="btn-box">
-                                <a href="#" class="theme-btn">Get Offer</a>
-                            </div>
-                        </div>
-                    </div>
-                }
-                    
-
-                    <!-- Pricing Block -->
-                    
-                </div>
-            </div>
-
-            <div class="sec-bottom-text">Don’t hesitate, contact us for better help and services <a href="#">Explore all Dr. Team</a></div>
-        </div>
-    </section>
     <!--End Pricing Section -->
 
      <!-- News Section -->

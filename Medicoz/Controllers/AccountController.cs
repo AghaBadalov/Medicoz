@@ -57,7 +57,7 @@ namespace Medicoz.Controllers
             appUser =await _userManager.FindByEmailAsync(userRegisterVM.Email);
             if (appUser != null)
             {
-                ModelState.AddModelError("Email", "Username already exists");
+                ModelState.AddModelError("Email", "Email already exists");
                 return View(userRegisterVM);
             }
             appUser = new AppUser
@@ -69,7 +69,7 @@ namespace Medicoz.Controllers
             };
             await _userManager.CreateAsync(appUser, userRegisterVM.Password);
             await _userManager.AddToRoleAsync(appUser,"Member");
-            return RedirectToAction("login", "account");
+            return RedirectToAction("userlogin", "account");
 
         }
         public async Task<IActionResult> UserLogout()

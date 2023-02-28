@@ -1,4 +1,6 @@
-﻿using Medicoz.Models;
+﻿using Medicoz.Areas.manage.ViewModels;
+using Medicoz.DAL;
+using Medicoz.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,15 +13,21 @@ namespace Medicoz.Areas.manage.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly AppDbContext _context;
 
-        public DashboardController(UserManager<AppUser> userManager,RoleManager<IdentityRole> roleManager)
+        public DashboardController(UserManager<AppUser> userManager,RoleManager<IdentityRole> roleManager,AppDbContext context)
         {
             _userManager = userManager;
             _roleManager = roleManager;
+            _context = context;
         }
         public IActionResult Index()
         {
-            return View();
+            DashboardVM dashboardVM = new DashboardVM
+            {
+                Messages = _context.Messages.ToList(),
+            };
+            return View(dashboardVM);
         }
         //public async Task<IActionResult> CreateAdmin()
         //{
@@ -38,7 +46,7 @@ namespace Medicoz.Areas.manage.Controllers
         //    IdentityRole role3=new IdentityRole("Member");
         //    await _roleManager.CreateAsync(role3);
         //    await _roleManager.CreateAsync(role2);
-           
+
         //    await _roleManager.CreateAsync(role1);
         //    return Ok("RolesCreated");
         //}
@@ -48,5 +56,6 @@ namespace Medicoz.Areas.manage.Controllers
         //    await _userManager.AddToRoleAsync(admin, "Admin");
         //    return Ok("Roleadded");
         //}
+        
     }
 }

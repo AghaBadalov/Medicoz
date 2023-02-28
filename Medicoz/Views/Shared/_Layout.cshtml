@@ -50,10 +50,10 @@
                         </div>
                         <div class="top-right">
                             <ul class="social-icon-one">
-                                <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                <li><a href="#"><span class="fab fa-skype"></span></a></li>
-                                <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                                <li><a href="@(settings.FirstOrDefault(x => x.Key == "Facebook")?.Value)"><span class="fab fa-facebook-f"></span></a></li>
+                                <li><a href="@(settings.FirstOrDefault(x => x.Key == "Twitter")?.Value),"><span class="fab fa-twitter"></span></a></li>
+                                <li><a href="@(settings.FirstOrDefault(x => x.Key == "Skype")?.Value),"><span class="fab fa-skype"></span></a></li>
+                                <li><a href="@(settings.FirstOrDefault(x => x.Key == "Linkedin")?.Value),"><span class="fab fa-linkedin-in"></span></a></li>
                             </ul>
                             <div class="btn-box">
                                 <a asp-action="index" asp-controller="doctor"  class="theme-btn btn-style-three"><span class="btn-title">Appointment</span></a>
@@ -126,7 +126,7 @@
                                             </ul>
                                         }
                                     </li>
-                                    <li class="current"><a href="contact.html">Contact</a></li>
+                                    <li class="current"><a asp-action="index" asp-controller="contactus" >Contact</a></li>
                                 </ul>
                             </nav>
                             <!-- Main Menu End-->
@@ -200,13 +200,12 @@
                                         <p>Our Clinic has grown to provide a world class facility for the clinic advanced restorative. </p>
                                         <p>We are among the most qualified implant providers in the AUS with over 30 years of quality training and experience.</p>
                                     </div>
-                                    <ul class="social-icon-three">
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-skype"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    </ul>
+                                            <ul class="social-icon-one">
+                                                <li><a href="@(settings.FirstOrDefault(x => x.Key == "Facebook")?.Value)"><span class="fab fa-facebook-f"></span></a></li>
+                                                <li><a href="@(settings.FirstOrDefault(x => x.Key == "Twitter")?.Value),"><span class="fab fa-twitter"></span></a></li>
+                                                <li><a href="@(settings.FirstOrDefault(x => x.Key == "Skype")?.Value),"><span class="fab fa-skype"></span></a></li>
+                                                <li><a href="@(settings.FirstOrDefault(x => x.Key == "Linkedin")?.Value),"><span class="fab fa-linkedin-in"></span></a></li>
+                                            </ul>
                                 </div>
                             </div>
 
@@ -236,14 +235,14 @@
 
                                             <li>
                                                 <span class="icon flaticon-call-1"></span>
-                                                <div class="text">Mon to Fri : 08:30 - 18:00</div>
+                                                
                                                         <a href="tel:+@(settings.FirstOrDefault(x => x.Key == "Phone")?.Value)"><strong>+@(settings.FirstOrDefault(x => x.Key == "Phone")?.Value)</strong></a>
                                             </li>
 
                                             <li>
                                                 <span class="icon flaticon-email"></span>
                                                 <div class="text">Do you have a Question?<br>
-                                                            <a href="#"><strong>@(settings.FirstOrDefault(x => x.Key == "email")?.Value)</strong></a>
+                                                            <a href="#"><strong>@(settings.FirstOrDefault(x => x.Key == "Email")?.Value)</strong></a>
                                                         </div>
                                             </li>
 
@@ -274,13 +273,13 @@
                     <div class="footer-nav">
                         <ul class="clearfix">
                            <li><a href="#">Privacy Policy</a></li> 
-                           <li><a asp-action="index" asp-controller="contact">Contact</a></li> 
+                           <li><a asp-action="index" asp-controller="contactus">Contact</a></li> 
                            <li><a href="#">Supplier</a></li>  
                         </ul>
                     </div>
                     
                     <div class="copyright-text">
-                        <p>Copyright © 2019 <a href="#">Bold Touch</a>All Rights Reserved.</p>
+                                <p>@(settings.FirstOrDefault(x => x.Key == "CopyRight")?.Value) <a href="#"></a>@(settings.FirstOrDefault(x => x.Key == "FooterCopyriht2")?.Value)</p>
                     </div>
                 </div>
             </div>

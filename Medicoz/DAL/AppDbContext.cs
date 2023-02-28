@@ -26,6 +26,8 @@ namespace Medicoz.DAL
         public DbSet<AppUser> Users { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
         public DbSet<BlogComment> BlogComments { get; set; }
+        public DbSet<AdminMessage> Messages { get; set; }
+        
         
 
     }

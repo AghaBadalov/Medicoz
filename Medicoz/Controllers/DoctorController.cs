@@ -86,16 +86,7 @@ namespace Medicoz.Controllers
             }
 
 
-            //while (start.AddMinutes(60) <= end)
-            //{
-            //    list.Add(new SelectListItem() { Text = start.ToString("t") + " - " + start.AddMinutes(60).ToString("t") });
-            //    start = start.AddMinutes(60);
-            //    //i += 1;
-            //}
-            //foreach (var item in list)
-            //{
-            //    ViewBag.List += item.Value;
-            //}
+            
 
             return View(appointment);
         }
