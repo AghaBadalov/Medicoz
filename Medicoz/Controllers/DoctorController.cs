@@ -1,6 +1,7 @@
 ﻿using Medicoz.DAL;
 using Medicoz.Models;
 using Medicoz.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,23 +13,35 @@ namespace Medicoz.Controllers
     public class DoctorController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public DoctorController(AppDbContext context)
+        public DoctorController(AppDbContext context,UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
             Doctor doctor = _context.Doctors.Include(x => x.Department).FirstOrDefault(x => x.Id == id);
             if (doctor == null) return NotFound();
+            AppUser member = null;
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                member = await _userManager.FindByNameAsync(HttpContext.User.Identity.Name);
+            }
             AppointmentVm appointment = new AppointmentVm
             {
                 Doctor = doctor,
                 DoctorId = doctor.Id,
+                Email=member?.Email,
+                FullName=member?.FullName,
+                Phone=member?.PhoneNumber,
+
+
             };
             DateTime start = appointment.Doctor.WorkStartTime;
             DateTime end = appointment.Doctor.WorkEndTime;
