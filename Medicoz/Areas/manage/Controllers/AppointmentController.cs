@@ -1,6 +1,7 @@
 ﻿using Medicoz.DAL;
 using Medicoz.Helpers;
 using Medicoz.Models;
+using Medicoz.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,10 +15,12 @@ namespace Medicoz.Areas.manage.Controllers
     public class AppointmentController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IEmailService _emailService;
 
-        public AppointmentController(AppDbContext context)
+        public AppointmentController(AppDbContext context,IEmailService emailService)
         {
             _context = context;
+            _emailService = emailService;
         }
         public IActionResult Index(int page=1)
         {
@@ -45,6 +48,7 @@ namespace Medicoz.Areas.manage.Controllers
             Appointment appointment = _context.Appointments.FirstOrDefault(x => x.Id == id);
             if (appointment == null) return NotFound();
             appointment.Status = Enums.Status.Accepted;
+            _emailService.Send(appointment.Email, "Your Appointment accepted", "Thank you ");
             _context.SaveChanges();
             return RedirectToAction("index");
 

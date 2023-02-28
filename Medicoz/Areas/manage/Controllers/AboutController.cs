@@ -124,7 +124,7 @@ namespace Medicoz.Areas.manage.Controllers
                 {
                     System.IO.File.Delete(path);
                 }
-                about.MiddleImageUrl = about.MiddleImage.SaveFile("uploads/manage", _env.WebRootPath);
+                exstabout.MiddleImageUrl = about.MiddleImage.SaveFile("uploads/abouts", _env.WebRootPath);
 
             }
             if (about.SmallImage != null)
@@ -144,7 +144,7 @@ namespace Medicoz.Areas.manage.Controllers
                 {
                     System.IO.File.Delete(path);
                 }
-                about.SmallImageUrl = about.SmallImage.SaveFile("uploads/manage", _env.WebRootPath);
+                exstabout.SmallImageUrl = about.SmallImage.SaveFile("uploads/abouts", _env.WebRootPath);
 
             }
             if (about.BigImage != null)
@@ -164,7 +164,7 @@ namespace Medicoz.Areas.manage.Controllers
                 {
                     System.IO.File.Delete(path);
                 }
-                about.BigImageUrl = about.BigImage.SaveFile("uploads/manage", _env.WebRootPath);
+                exstabout.BigImageUrl = about.BigImage.SaveFile("uploads/abouts", _env.WebRootPath);
 
             }
             exstabout.Tittle=about.Tittle;

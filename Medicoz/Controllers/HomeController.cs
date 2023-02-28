@@ -1,5 +1,6 @@
 ﻿using Medicoz.DAL;
 using Medicoz.Models;
+using Medicoz.Services;
 using Medicoz.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -33,7 +34,7 @@ namespace Medicoz.Controllers
             };
             return View(vm);
         }
-
+        
         
     }
 }

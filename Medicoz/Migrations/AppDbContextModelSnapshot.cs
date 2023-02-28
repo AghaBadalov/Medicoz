@@ -422,6 +422,31 @@ namespace Medicoz.Migrations
                     b.ToTable("Features");
                 });
 
+            modelBuilder.Entity("Medicoz.Models.Gallery", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Imageurl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tittle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.ToTable("Galleries");
+                });
+
             modelBuilder.Entity("Medicoz.Models.Plan", b =>
                 {
                     b.Property<int>("Id")
@@ -891,6 +916,17 @@ namespace Medicoz.Migrations
                     b.Navigation("Department");
                 });
 
+            modelBuilder.Entity("Medicoz.Models.Gallery", b =>
+                {
+                    b.HasOne("Medicoz.Models.Department", "Department")
+                        .WithMany("Galleries")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+                });
+
             modelBuilder.Entity("Medicoz.Models.Plan", b =>
                 {
                     b.HasOne("Medicoz.Models.PlanCategory", "PlanCategory")
@@ -961,6 +997,8 @@ namespace Medicoz.Migrations
             modelBuilder.Entity("Medicoz.Models.Department", b =>
                 {
                     b.Navigation("Doctors");
+
+                    b.Navigation("Galleries");
                 });
 
             modelBuilder.Entity("Medicoz.Models.PlanCategory", b =>

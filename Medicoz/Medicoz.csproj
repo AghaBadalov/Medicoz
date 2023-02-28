@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="3.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.12" />
@@ -15,6 +16,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.12" />
+    <PackageReference Include="MimeKit" Version="3.5.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +24,7 @@
     <Folder Include="wwwroot\uploads\abouts\" />
     <Folder Include="wwwroot\uploads\doctors\" />
     <Folder Include="wwwroot\uploads\departments\" />
+    <Folder Include="wwwroot\uploads\galleries\" />
     <Folder Include="wwwroot\uploads\posts\" />
     <Folder Include="wwwroot\uploads\testimonials\" />
     <Folder Include="wwwroot\uploads\settings\" />
