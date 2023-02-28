@@ -39,6 +39,8 @@ namespace Medicoz.Areas.manage.Controllers
             Appointment appointment = _context.Appointments.FirstOrDefault(x => x.Id == id);
             if (appointment == null) return NotFound();
             appointment.Status = Enums.Status.Declined;
+            _emailService.Send(appointment.Email, "Your Appointment cancelled", "Sorry ");
+
             _context.SaveChanges();
             return RedirectToAction("index");
 
