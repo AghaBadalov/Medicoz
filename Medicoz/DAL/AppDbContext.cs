@@ -27,6 +27,7 @@ namespace Medicoz.DAL
         public DbSet<BlogPost> BlogPosts { get; set; }
         public DbSet<BlogComment> BlogComments { get; set; }
         public DbSet<AdminMessage> Messages { get; set; }
+        public DbSet<Product> Products { get; set; }
         
         
 

@@ -25,6 +25,7 @@
     <Folder Include="wwwroot\uploads\doctors\" />
     <Folder Include="wwwroot\uploads\departments\" />
     <Folder Include="wwwroot\uploads\galleries\" />
+    <Folder Include="wwwroot\uploads\products\" />
     <Folder Include="wwwroot\uploads\posts\" />
     <Folder Include="wwwroot\uploads\testimonials\" />
     <Folder Include="wwwroot\uploads\settings\" />

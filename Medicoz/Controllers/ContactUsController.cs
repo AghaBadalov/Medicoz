@@ -26,9 +26,9 @@ namespace Medicoz.Controllers
             }
             ContactVM contactVM = new ContactVM
             {
-                Email = member.Email,
-                Phone = member.PhoneNumber,
-                UserName = member.UserName,
+                Email = member?.Email,
+                Phone = member?.PhoneNumber,
+                UserName = member?.UserName,
 
             };
 

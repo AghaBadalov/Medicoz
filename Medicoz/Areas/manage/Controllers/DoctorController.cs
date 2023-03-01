@@ -160,7 +160,7 @@ namespace Medicoz.Areas.manage.Controllers
             
             exstdoctor.Desc = doctor.Desc;
             exstdoctor.Name = doctor.Name;
-            exstdoctor.Department = doctor.Department;
+            exstdoctor.DepartmentId = doctor.DepartmentId;
             exstdoctor.Education = doctor.Education;
             exstdoctor.Adress = doctor.Adress;
             exstdoctor.Phone = doctor.Phone;
