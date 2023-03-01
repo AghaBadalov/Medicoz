@@ -72,7 +72,7 @@ namespace Medicoz.Areas.manage.Controllers
             if(exstplan == null) return View("error");
             if (!ModelState.IsValid) return View(plan);
             exstplan.Planperiod = plan.Planperiod;
-            exstplan.PlanCategory = plan.PlanCategory;
+            exstplan.PlanCategoryId = plan.PlanCategoryId;
             exstplan.Feature1 = plan.Feature1;
             exstplan.Feature2 = plan.Feature2;
             exstplan.Feature3 = plan.Feature3;
