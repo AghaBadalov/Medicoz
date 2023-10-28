@@ -22,6 +22,7 @@ namespace Medicoz.Services
                 user =await _userManager.FindByNameAsync(_contextAccessor.HttpContext.User.Identity.Name);
                 return user;
             }
+            
             return null;
         }
     }

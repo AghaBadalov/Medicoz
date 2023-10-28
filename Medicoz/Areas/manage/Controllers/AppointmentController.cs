@@ -24,7 +24,7 @@ namespace Medicoz.Areas.manage.Controllers
         }
         public IActionResult Index(int page=1)
         {
-            var query = _context.Appointments.Include(x=>x.Doctor).Where(x => x.Status != Enums.Status.Accepted).AsQueryable();
+            var query = _context.Appointments.Include(x=>x.Doctor).Where(x => x.Status == Enums.Status.Pending).AsQueryable();
             PaginatedList<Appointment> appointments = PaginatedList<Appointment>.Create(query, 5, page);
             return View(appointments);
         }

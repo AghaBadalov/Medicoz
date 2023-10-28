@@ -48,14 +48,15 @@ namespace Medicoz.Controllers
         {
             if (!ModelState.IsValid) return View(userRegisterVM);
             AppUser appUser = null;
-             appUser =await _userManager.FindByNameAsync(userRegisterVM.UserName);
+            appUser =await _userManager.FindByNameAsync(userRegisterVM.UserName);
             if (appUser != null)
             {
                 ModelState.AddModelError("UserName", "Username already exists");
                 return View(userRegisterVM);
             }
             appUser =await _userManager.FindByEmailAsync(userRegisterVM.Email);
-            if (appUser != null)
+            if (appUser != null
+
             {
                 ModelState.AddModelError("Email", "Email already exists");
                 return View(userRegisterVM);
